@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <title>Frontend Mentor | Clock App</title>
+  <!-- font links -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800;900&display=swap" rel="stylesheet">
+  <!-- stylesheet links -->
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <!-- link to fontawesome icon library -->
+	<link href="assets/libraries/fontawesome-free-5.15.4-web/css/all.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+
+    <!-- main container for 3 sections -->
+    <div class="mainContainer">
+      <!-- quote section -->
+      <div class="quoteSection">
+        <div class="quoteWrapper">
+          <p class="bodyText quoteText">"Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae odit fugiat iusto fuga praesentium optio, eaque rerum!"</p>
+          <span class="refreshBtnWrapper"><img class="refreshBtn" src="assets\images\desktop\icon-refresh.svg" alt=""></span>
+          <p class="bodyText quoteAuthor">Josh Early</p>
+        </div>
+      </div>
+      <!-- main clock section -->
+      <div class="clockSection">
+        <div class="clockWrapper">
+          <div class="clockRow1">
+            <span class="tODDynamic"><img class="tODIcon" src="assets\images\desktop\icon-sun.svg" alt=""><p class="tODText bodyText">Good morning</p></span>
+            <span class="tODStatic"><p class="tODText bodyText">, It's currently</p></span>
+          </div>
+          <div class="clockRow2">
+            <span class="time"><p class="timeText">11:37</p></span><span class="timezone"><p class="timezoneText">BST</p></span>
+          </div>
+          <div class="clockRow3">
+            <span class="area"><p class="areaText">In London, UK</p></span>
+            <span class="btnWrapper"><button class="expandBtn"><span class="btnText">more</span><i class="fas fa-chevron-circle-down"></i></button></span>
+          </div>
+        </div>
+      </div>
+      <!-- expanded content shown on click -->
+      <div class="expandedSection hide">
+        <!-- <div class="grey-bg"></div>   -->
+        <div class="expandWrapper">
+          <div class="expandLeft">
+            <div class="expandCol1">
+              <p class="key">Current Timezone</p>
+              <p class="value currTimezone">Europe/London</p>
+            </div>
+            <div class="expandCol2">
+              <p class="key">Day of the year</p>
+              <p class="value dayOfYear">295</p>
+            </div>
+          </div>
+          <div class="expandRight">
+            <div class="expandCol3">
+              <p class="key">Day of the week</p>
+              <p class="value dayOfWeek">5</p>
+            </div>
+            <div class="expandCol4">
+              <p class="key">Week number</p>
+              <p class="value weekNum">42</p>
+            </div>
+          </div>
+        </div>
+      </div> 
+    </div>
+      
+  </div>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script type="text/javascript" src="assets/js/script.js"></script>
+</body>
+</html>
