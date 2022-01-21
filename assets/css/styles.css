@@ -12,8 +12,6 @@ body {
   height: 100vh;
   min-height: 100vh;
   width: 100%; 
-  /* padding: 5vw 12vw;    */
-  padding-top: 5vw;
   background-image: url("../images/desktop/bg-image-daytime.jpg"), linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
   background-size: cover; 
   background-position: center;
@@ -21,10 +19,8 @@ body {
 }
 
 .container {
-  /* height: calc(100vh - 10vw); */
   height: 100%;
   width: 100%;
-  /* background-color: #9999991e; */
 }
 
 .mainContainer {
@@ -38,19 +34,20 @@ body {
 .quoteSection {
   width: 100%;
   height: 40%;
-
-  padding: 0 12vw;
-
-  background-color: #ff0e0e15;
+  padding: 5vw 12vw 0 12vw;
+  /* background-color: #ff0e0e15; */
 }
 
 .clockSection {
   width: 100%;
   height: 60%;
-
   padding: 0 12vw 5vw 12vw;
+  /* background-color: #0eff221a; */
+}
 
-  background-color: #0eff221a;
+.expandActive {
+  height: 50%;
+  padding: 5vw 12vw 0 12vw;
 }
 
 .clockWrapper {
@@ -63,9 +60,8 @@ body {
 .expandedSection {
   width: 100%;
   height: 50%;
-
-  padding: 0 12vw;
-
+  padding: 0 12vw 5vw 12vw;
+  margin-top: 3vw;
   background-color: #99999985;
 }
 
@@ -226,6 +222,18 @@ body {
     display: block;
     margin-top: 3.5em;
   }
+
+  .expandActive {
+    height: 60%;
+  }
+
+  .expandedSection {
+    height: 40%;
+  }
+
+  .timeText {
+    font-size: 9.8em;
+  }
 }
 
 
@@ -236,9 +244,25 @@ body {
     width: 100%;
   }
 
+  .expandedSection {
+    margin-top: 0;
+    padding: 0 10vw 5vw 10vw;
+  }
+
   body {
     font-size: 16px;
-    padding: 5vw 10vw;  
+  }
+
+  .quoteSection {
+    padding: 5vw 10vw 0 10vw;
+  }
+
+  .clockSection {
+    padding: 0 10vw 5vw 10vw;
+  }
+
+  .expandActive {
+    padding: 5vw 10vw 0 10vw;
   }
 
   .tODIcon {
@@ -253,8 +277,16 @@ body {
 
           
 @media (max-width: 575.98px) {
-  body { 
-    padding: 5vw 5vw;  
+  .quoteSection {
+    padding: 5vw 5vw 0 5vw;
+  }
+
+  .clockSection {
+    padding: 0 5vw 5vw 5vw;
+  }
+
+  .expandActive {
+    padding: 5vw 5vw 0 5vw;
   }
 
   .tODStatic {
@@ -289,6 +321,9 @@ body {
   body {
     height: 768px;                          
   }
+
+
 }
+
 
 
