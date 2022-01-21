@@ -1,0 +1,294 @@
+/* Colors: */
+/* black: #000000 */
+/* Light-grey-black(normal-btn + expanded-daytime-text): #303030 */
+/* white: #ffffff */
+/* active-btn: #999999 */
+/* font-family: inter */
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  color: #ffffff;
+  height: 100vh;
+  min-height: 100vh;
+  width: 100%; 
+  /* padding: 5vw 12vw;    */
+  padding-top: 5vw;
+  background-image: url("../images/desktop/bg-image-daytime.jpg"), linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
+  background-size: cover; 
+  background-position: center;
+  background-blend-mode: overlay;                               
+}
+
+.container {
+  /* height: calc(100vh - 10vw); */
+  height: 100%;
+  width: 100%;
+  /* background-color: #9999991e; */
+}
+
+.mainContainer {
+  display: flex;
+  justify-content: left;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.quoteSection {
+  width: 100%;
+  height: 40%;
+
+  padding: 0 12vw;
+
+  background-color: #ff0e0e15;
+}
+
+.clockSection {
+  width: 100%;
+  height: 60%;
+
+  padding: 0 12vw 5vw 12vw;
+
+  background-color: #0eff221a;
+}
+
+.clockWrapper {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.expandedSection {
+  width: 100%;
+  height: 50%;
+
+  padding: 0 12vw;
+
+  background-color: #99999985;
+}
+
+.hide {
+  display: none;
+}
+
+.quoteWrapper {
+  width: 60%;
+}
+
+.bodyText {
+  line-height: 1.75em;
+}
+
+.quoteText {
+  width: calc(100% - 1.5em);
+  display: inline-block;
+  font-weight: 300;
+}
+
+.quoteAuthor {
+  font-weight: bold;
+  margin-top: 0.5em;
+}
+
+.refreshBtnWrapper {
+  display: block;
+  width: 1.5em;
+  height: 1.5em;
+  padding-top: 0.4em;
+  float: right; 
+  text-align: right;
+}
+
+.refreshBtn:hover {
+  cursor: pointer;
+}
+
+.clockRow2 {
+  margin: 0.4em 0 0.6em 0;
+}
+
+.tODDynamic {
+  display: inline-block;
+}
+
+.tODStatic {
+  display: inline-block;
+  position: relative;
+  left: -0.4em;
+}
+
+.tODIcon {
+  position: relative;
+  top: 0.25em;
+  margin-right: 0.8em;
+}
+
+.tODText {
+  display: inline-block;
+  font-size: 1.2em;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+.timeText {
+  font-size: 10.9em;
+  font-weight: 800;
+}
+
+.timezoneText {
+  font-size: 2em;
+  font-weight: 200;
+}
+
+.timezone, .time {
+  display: inline-block;
+}
+
+.areaText {
+  display: inline-block;
+  font-size: 1.45em;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+.expandBtn {
+  display: inline-block;
+  height: 3.5em;
+  line-height: 3.5em;
+  width: 8.5em;
+  background-color: #ffffff;
+  outline: none;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  color: #303030;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border-radius: 1.75em;
+  padding: 0 0;
+}
+
+.expandBtn:hover {
+  cursor: pointer;
+}
+
+.expandBtn:hover > .fa-chevron-circle-down {
+  color: #7f7f7f;
+}
+
+.fa-chevron-circle-down {
+  font-size: 2.5em;
+  position: relative;
+  top: 0.225em;
+  right: -0.3em;
+  transition: all 0.2s ease-in-out;
+}
+
+.btnWrapper {
+  position: relative;
+  top: -0.5em;
+  float: right;
+}
+
+.expandWrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.expandLeft, .expandRight {
+  width: 50%;
+}
+
+
+
+
+
+/************** Responsiveness ****************/
+/*Large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {
+  .quoteWrapper {
+    width: 80%;
+  }
+} 
+
+
+
+/*Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+  .btnWrapper {
+    position: static;
+    float: none;
+    display: block;
+    margin-top: 3.5em;
+  }
+}
+
+
+
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+  .quoteWrapper {
+    width: 100%;
+  }
+
+  body {
+    font-size: 16px;
+    padding: 5vw 10vw;  
+  }
+
+  .tODIcon {
+    top: 0.33em;
+  }
+
+  .timeText {
+    font-size: 9.7em;
+  }
+}
+
+
+          
+@media (max-width: 575.98px) {
+  body { 
+    padding: 5vw 5vw;  
+  }
+
+  .tODStatic {
+    display: none;
+  }
+
+  .timeText {
+    font-size: 7.6em;
+  }
+}
+
+
+
+@media (max-width: 414.98px) {
+  .timeText {
+    font-size: 7em;
+  }
+
+  body {
+    font-size: 15px;  
+  }
+
+}
+
+@media (max-width: 360.98px) {
+  .timeText {
+    font-size: 5em;
+  }
+}
+
+@media (max-height: 700px) and (min-width: 415px){
+  body {
+    height: 768px;                          
+  }
+}
+
+

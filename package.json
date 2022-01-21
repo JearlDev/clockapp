@@ -1,0 +1,16 @@
+{
+  "name": "clockapp",
+  "version": "1.0.0",
+  "description": "![Design preview for the Clock app coding challenge](./preview.jpg)",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "gh-pages -d dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://jearldev.github.io/clockapp",
+  "dependencies": {
+    "gh-pages": "^3.2.3"
+  }
+}
