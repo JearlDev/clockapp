@@ -391,6 +391,10 @@ body {
   .timeText {
     font-size: 7.6em;
   }
+  
+  .value {
+    font-size: 1.4em;
+  }
 }
 
 
