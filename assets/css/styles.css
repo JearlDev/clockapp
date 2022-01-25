@@ -139,7 +139,7 @@ body {
   font-weight: 200;
 }
 
-.timezone, .time {
+.timezoneWrap, .timeWrap {
   display: inline-block;
 }
 
@@ -391,7 +391,7 @@ body {
   .timeText {
     font-size: 7.6em;
   }
-  
+
   .value {
     font-size: 1.4em;
   }
