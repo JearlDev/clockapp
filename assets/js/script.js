@@ -26,10 +26,15 @@ document.querySelector('.refreshBtn')
 .addEventListener('click', displayQuote);
 
 async function getQuote(){
-  const res = await axios.get('https://api.quotable.io/random');
-  const quote = res.data.content;
-  const author = res.data.author;
-  return [quote, author];
+  try {
+    const res = await axios.get('https://api.quotable.io/random');
+    const quote = res.data.content;
+    const author = res.data.author;
+    return [quote, author];
+  } catch(e){
+    console.log(e);
+  }
+  
 }
 
 async function displayQuote(){
@@ -37,4 +42,67 @@ async function displayQuote(){
 
   document.querySelector('.quote').innerHTML = `${quoteContent[0]}`;
   document.querySelector('.author').innerHTML = `${quoteContent[1]}`;
+}
+
+
+
+//Time and Location Details functionality
+window.addEventListener('load', displayDetails);
+
+async function getLocationDetails(){
+  try {
+    const res = await axios.get('https://ipapi.co/json/');
+    const timezone = res.data.timezone;
+    const city = res.data.city;
+    const country = res.data.country;
+
+    const arr = [timezone, city, country];
+    
+    return arr;
+  } catch(e){
+    console.log(e);
+  }
+}
+
+
+
+async function getTimeDetails(){
+  try {
+    const locationDetails = await getLocationDetails();
+    const timezone = locationDetails[0];
+
+    const res = await axios.get(`http://worldtimeapi.org/api/timezone/${timezone}`);
+    
+    const abbrev = res.data.abbreviation;
+    const dayOfWeek = res.data.day_of_week;
+    const dayOfYear = res.data.day_of_year;
+    const weekNum = res.data.week_number;
+    const dateTime = res.data.datetime;
+    const city = locationDetails[1];
+    const country = locationDetails[2];
+
+    const arr = [abbrev, dayOfWeek, dayOfYear, weekNum, timezone, dateTime, city, country];
+    
+    return arr;
+  } catch(e){
+    console.log(e);
+  }
+}
+
+
+async function displayDetails(){
+  const details = await getTimeDetails();
+  const abbrev = details[0];
+  const dayOfWeek = details[1];
+  const dayOfYear = details[2];
+  const weekNum = details[3];
+  const timezone = details[4];
+  const dateTime = details[5];
+  const time = dateTime.substr(11,5);
+  const location = `${details[6]}, ${details[7]}`;
+
+  
+  document.querySelector('.timezoneAbbr').innerHTML = `${details[0]}`;
+  document.querySelector('.time').innerHTML = time;
+  document.querySelector('.location').innerHTML = location;
 }
