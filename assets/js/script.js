@@ -71,7 +71,7 @@ async function getTimeDetails(){
     const locationDetails = await getLocationDetails();
     const timezone = locationDetails[0];
 
-    const res = await axios.get(`http://worldtimeapi.org/api/timezone/${timezone}`);
+    const res = await axios.get(`https://worldtimeapi.org/api/timezone/${timezone}`);
     
     const abbrev = res.data.abbreviation;
     const dayOfWeek = res.data.day_of_week;
@@ -92,11 +92,7 @@ async function getTimeDetails(){
 
 async function displayDetails(){
   const details = await getTimeDetails();
-  const abbrev = details[0];
-  const dayOfWeek = details[1];
-  const dayOfYear = details[2];
-  const weekNum = details[3];
-  const timezone = details[4];
+  
   const dateTime = details[5];
   const time = dateTime.substr(11,5);
   const location = `${details[6]}, ${details[7]}`;
@@ -105,4 +101,8 @@ async function displayDetails(){
   document.querySelector('.timezoneAbbr').innerHTML = `${details[0]}`;
   document.querySelector('.time').innerHTML = time;
   document.querySelector('.location').innerHTML = location;
+  document.querySelector('.currTimezone').innerHTML = `${details[4]}`;
+  document.querySelector('.dayOfYear').innerHTML = `${details[2]}`;
+  document.querySelector('.dayOfWeek').innerHTML = `${details[1]}`;
+  document.querySelector('.weekNum').innerHTML = `${details[3]}`;
 }
