@@ -48,6 +48,8 @@ async function displayQuote(){
 
 //Time and Location Details functionality
 window.addEventListener('load', displayDetails);
+window.addEventListener('load', displayTime);
+
 
 async function getLocationDetails(){
   try {
@@ -91,18 +93,61 @@ async function getTimeDetails(){
 
 
 async function displayDetails(){
+  //get time and location details
   const details = await getTimeDetails();
-  
-  const dateTime = details[5];
-  const time = dateTime.substr(11,5);
+
+  //concatenate location string
   const location = `${details[6]}, ${details[7]}`;
 
-  
+  //update time and location details
   document.querySelector('.timezoneAbbr').innerHTML = `${details[0]}`;
-  document.querySelector('.time').innerHTML = time;
   document.querySelector('.location').innerHTML = location;
   document.querySelector('.currTimezone').innerHTML = `${details[4]}`;
   document.querySelector('.dayOfYear').innerHTML = `${details[2]}`;
   document.querySelector('.dayOfWeek').innerHTML = `${details[1]}`;
   document.querySelector('.weekNum').innerHTML = `${details[3]}`;
 }
+
+
+function displayTime(){
+  //get current time
+  const today = new Date();
+  const hrs = today.getHours();
+  const mins = today.getMinutes();
+
+  //Set timeOfDay text
+  if(hrs < 12 && hrs >= 5){
+    //good morning
+    document.querySelector('.tOD').innerHTML = 'Good morning';
+    document.querySelector('.tODIcon').src = 'assets\images\desktop\icon-sun.svg';
+  }else if(hrs >= 12 && hrs < 18){
+    //good afternoon
+    document.querySelector('.tOD').innerHTML = 'Good afternoon';
+    document.querySelector('.tODIcon').src = 'assets\images\desktop\icon-sun.svg';
+  }else {
+    //good evening
+    document.querySelector('.tOD').innerHTML = 'Good evening';
+    document.querySelector('.tODIcon').src = 'assets\images\desktop\icon-moon.svg';
+  }
+
+  //set time
+  const hours = pad(hrs);
+  const minutes = pad(mins);
+  const time = `${hours}:${minutes}`;
+  
+  //update time
+  document.querySelector('.time').innerHTML = time;
+  refreshTime();
+}
+
+
+function refreshTime(){
+  const refreshRate = 10000;
+  setTimeout(displayTime, refreshRate);
+}
+
+function pad(val) {
+  val = String(val);
+  while (val.length < 2) val = "0" + val;
+  return val;
+};
