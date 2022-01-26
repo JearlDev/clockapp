@@ -1,26 +1,14 @@
-/* Colors: */
-/* black: #000000 */
-/* Light-grey-black(normal-btn + expanded-daytime-text): #303030 */
-/* white: #ffffff */
-/* active-btn: #999999 */
-/* font-family: inter */
-
 body {
-  font-family: 'Inter', sans-serif;
-  font-size: 18px;
-  color: #ffffff;
-  height: 100vh;
-  min-height: 100vh;
-  width: 100%; 
   background-image: url("../images/desktop/bg-image-daytime.jpg"), linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
   background-size: cover; 
   background-position: center;
-  background-blend-mode: overlay;                               
-}
-
-/* night mode */
-.nighttimeBg {
-  background-image: url("../images/desktop/bg-image-nighttime.jpg"), linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));  
+  background-blend-mode: overlay;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  height: 100vh;
+  min-height: 100vh;
+  width: 100%;                              
 }
 
 .container {
@@ -30,7 +18,7 @@ body {
 
 .mainContainer {
   display: flex;
-  justify-content: left;
+  justify-content: flex-start;
   flex-direction: column;
   height: 100%;
   width: 100%;
@@ -40,14 +28,12 @@ body {
   width: 100%;
   height: 40%;
   padding: 5vw 12vw 0 12vw;
-  /* background-color: #ff0e0e15; */
 }
 
 .clockSection {
   width: 100%;
   height: 60%;
   padding: 0 12vw 5vw 12vw;
-  /* background-color: #0eff221a; */
 }
 
 .expandActive {
@@ -59,7 +45,7 @@ body {
   display: flex;
   height: 100%;
   flex-direction: column;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .expandedSection {
@@ -68,11 +54,6 @@ body {
   padding: 3em 12vw 5vw 12vw;
   margin-top: 3vw;
   background-color: #c7c7c7;
-}
-
-/* night mode */
-.nighttimeBgColor {
-  background-color: rgba(0,0,0,0.85);
 }
 
 .hide {
@@ -237,7 +218,16 @@ body {
   letter-spacing: 0.02em;
 }
 
-/* night mode */
+
+/*** night mode ***/
+.nighttimeBg {
+  background-image: url("../images/desktop/bg-image-nighttime.jpg"), linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));  
+}
+
+.nighttimeBgColor {
+  background-color: rgba(0,0,0,0.85);
+}
+
 .nighttimeText {
   color: #f7f7f7;
 }
@@ -468,6 +458,7 @@ body {
     height: 768px;                          
   }
 }
+
 
 
 
