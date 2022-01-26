@@ -119,30 +119,15 @@ function displayTime(){
   const isMorning = hrs < 12 && hrs >= 5;
   const isAfternoon = hrs >= 12 && hrs < 18;
 
-  //Set timeOfDay text and background image based on time of day
+  //Set mode based on time of day
   if(isMorning){
-    //set good morning text and icon
-    document.querySelector('.tOD').innerHTML = 'Good morning';
-    document.querySelector('.tODIcon').src = 'assets/images/desktop/icon-sun.svg';
-    
+    enableMorningMode();
     disableNightMode();
-
   }else if(isAfternoon){
-    //set good afternoon text and icon
-    document.querySelector('.tOD').innerHTML = 'Good afternoon';
-    document.querySelector('.tODIcon').src = 'assets/images/desktop/icon-sun.svg';
-    
+    enableAfternoonMode();
     disableNightMode();
-    
   }else {
-    //set good evening text and icons
-    document.querySelector('.tOD').innerHTML = 'Good evening';
-    document.querySelector('.tODIcon').src = 'assets/images/desktop/icon-moon.svg';
-    //add night-time classes
-    document.querySelector('body').classList.add('nighttimeBg');
-    document.querySelector('.expandedSection').classList.add('nighttimeBgColor');
-    document.querySelector('.expandWrapper').classList.add('nighttimeText');
-    document.querySelector('.expandRight').classList.add('nighttimeDivider');
+    enableNightMode();
   }
 
   //save time values to one variable
@@ -177,4 +162,24 @@ function disableNightMode(){
   document.querySelector('.expandRight').classList.remove('nighttimeDivider');
 }
 
+function enableMorningMode(){
+  document.querySelector('.tOD').innerHTML = 'Good morning';
+  document.querySelector('.tODIcon').src = 'assets/images/desktop/icon-sun.svg';
+}
+
+function enableAfternoonMode(){
+  document.querySelector('.tOD').innerHTML = 'Good afternoon';
+  document.querySelector('.tODIcon').src = 'assets/images/desktop/icon-sun.svg';
+}
+
+function enableNightMode(){
+  //set good evening text and icons
+  document.querySelector('.tOD').innerHTML = 'Good evening';
+  document.querySelector('.tODIcon').src = 'assets/images/desktop/icon-moon.svg';
+  //add night-time classes
+  document.querySelector('body').classList.add('nighttimeBg');
+  document.querySelector('.expandedSection').classList.add('nighttimeBgColor');
+  document.querySelector('.expandWrapper').classList.add('nighttimeText');
+  document.querySelector('.expandRight').classList.add('nighttimeDivider');
+}
 
