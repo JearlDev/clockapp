@@ -115,19 +115,34 @@ function displayTime(){
   const hrs = today.getHours();
   const mins = today.getMinutes();
 
-  //Set timeOfDay text
+  //Set timeOfDay text and background image
   if(hrs < 12 && hrs >= 5){
     //good morning
     document.querySelector('.tOD').innerHTML = 'Good morning';
     document.querySelector('.tODIcon').src = 'assets/images/desktop/icon-sun.svg';
+    //remove nighttime classes
+    document.querySelector('body').classList.remove('nighttimeBg');
+    document.querySelector('.expandedSection').classList.remove('nighttimeBgColor');
+    document.querySelector('.expandWrapper').classList.remove('nighttimeText');
+    document.querySelector('.expandRight').classList.remove('nighttimeDivider');
   }else if(hrs >= 12 && hrs < 18){
     //good afternoon
     document.querySelector('.tOD').innerHTML = 'Good afternoon';
     document.querySelector('.tODIcon').src = 'assets/images/desktop/icon-sun.svg';
+    //remove nighttime classes
+    document.querySelector('body').classList.remove('nighttimeBg');
+    document.querySelector('.expandedSection').classList.remove('nighttimeBgColor');
+    document.querySelector('.expandWrapper').classList.remove('nighttimeText');
+    document.querySelector('.expandRight').classList.remove('nighttimeDivider');
   }else {
     //good evening
     document.querySelector('.tOD').innerHTML = 'Good evening';
     document.querySelector('.tODIcon').src = 'assets/images/desktop/icon-moon.svg';
+    //add night-time classes
+    document.querySelector('body').classList.add('nighttimeBg');
+    document.querySelector('.expandedSection').classList.add('nighttimeBgColor');
+    document.querySelector('.expandWrapper').classList.add('nighttimeText');
+    document.querySelector('.expandRight').classList.add('nighttimeDivider');
   }
 
   //set time
@@ -151,3 +166,5 @@ function pad(val) {
   while (val.length < 2) val = "0" + val;
   return val;
 };
+
+
