@@ -1,29 +1,30 @@
-//Expand functionality
-let expandBtn = document.querySelector('.expandBtn');
-
-expandBtn.addEventListener('click', expand);
+//***Expand functionality***//
+//call expand function on expand button click
+document.querySelector('.expandBtn').addEventListener('click', expand);
 
 function expand() {
+  //toggle classes on selected elements
   document.querySelector('.quoteSection').classList.toggle('hide');
   document.querySelector('.expandedSection').classList.toggle('hide');
   document.querySelector('.fa-chevron-circle-down').classList.toggle('fa-flip-vertical');
   document.querySelector('.clockSection').classList.toggle('expandActive');
   
-  let btnText = document.querySelector('.btnText');
+  const btnTextIsMore = document.querySelector('.btnText').innerHTML === 'more';
   
-  if(btnText.innerHTML === 'more'){
-    btnText.innerText = 'less';
+  if(btnTextIsMore){
+    document.querySelector('.btnText').innerText = 'less';
   } else {
-    btnText.innerText = 'more';
+    document.querySelector('.btnText').innerText = 'more';
   }
 }
 
 
-//Quote functionallity
-window.addEventListener('load', displayQuote)
 
-document.querySelector('.refreshBtn')
-.addEventListener('click', displayQuote);
+//***Quote functionallity***//
+//display quote on page load
+window.addEventListener('load', displayQuote)
+//display new quote on refresh button click
+document.querySelector('.refreshBtn').addEventListener('click', displayQuote);
 
 async function getQuote(){
   try {
@@ -34,22 +35,21 @@ async function getQuote(){
   } catch(e){
     console.log(e);
   }
-  
 }
 
 async function displayQuote(){
   const quoteContent = await getQuote();
-
+  //set quote and author text to fetched values
   document.querySelector('.quote').innerHTML = `${quoteContent[0]}`;
   document.querySelector('.author').innerHTML = `${quoteContent[1]}`;
 }
 
 
 
-//Time and Location Details functionality
-window.addEventListener('load', displayDetails);
+//***Time and Location Details functionality***////
+//display time and location details on page load
+window.addEventListener('load', displayDetails, );
 window.addEventListener('load', displayTime);
-
 
 async function getLocationDetails(){
   try {
@@ -115,27 +115,27 @@ function displayTime(){
   const hrs = today.getHours();
   const mins = today.getMinutes();
 
-  //Set timeOfDay text and background image
-  if(hrs < 12 && hrs >= 5){
-    //good morning
+  //Save time of day booleans to variables
+  const isMorning = hrs < 12 && hrs >= 5;
+  const isAfternoon = hrs >= 12 && hrs < 18;
+
+  //Set timeOfDay text and background image based on time of day
+  if(isMorning){
+    //set good morning text and icon
     document.querySelector('.tOD').innerHTML = 'Good morning';
     document.querySelector('.tODIcon').src = 'assets/images/desktop/icon-sun.svg';
-    //remove nighttime classes
-    document.querySelector('body').classList.remove('nighttimeBg');
-    document.querySelector('.expandedSection').classList.remove('nighttimeBgColor');
-    document.querySelector('.expandWrapper').classList.remove('nighttimeText');
-    document.querySelector('.expandRight').classList.remove('nighttimeDivider');
-  }else if(hrs >= 12 && hrs < 18){
-    //good afternoon
+    
+    disableNightMode();
+
+  }else if(isAfternoon){
+    //set good afternoon text and icon
     document.querySelector('.tOD').innerHTML = 'Good afternoon';
     document.querySelector('.tODIcon').src = 'assets/images/desktop/icon-sun.svg';
-    //remove nighttime classes
-    document.querySelector('body').classList.remove('nighttimeBg');
-    document.querySelector('.expandedSection').classList.remove('nighttimeBgColor');
-    document.querySelector('.expandWrapper').classList.remove('nighttimeText');
-    document.querySelector('.expandRight').classList.remove('nighttimeDivider');
+    
+    disableNightMode();
+    
   }else {
-    //good evening
+    //set good evening text and icons
     document.querySelector('.tOD').innerHTML = 'Good evening';
     document.querySelector('.tODIcon').src = 'assets/images/desktop/icon-moon.svg';
     //add night-time classes
@@ -145,26 +145,36 @@ function displayTime(){
     document.querySelector('.expandRight').classList.add('nighttimeDivider');
   }
 
-  //set time
+  //save time values to one variable
   const hours = pad(hrs);
   const minutes = pad(mins);
   const time = `${hours}:${minutes}`;
   
   //update time
   document.querySelector('.time').innerHTML = time;
+  //start time refreshing loop by calling refreshTime function
   refreshTime();
 }
 
-
+//refreshes time every 10 seconds
 function refreshTime(){
   const refreshRate = 10000;
   setTimeout(displayTime, refreshRate);
 }
 
+//adds '0' to beginning of intergers with one digit
 function pad(val) {
   val = String(val);
   while (val.length < 2) val = "0" + val;
   return val;
 };
+
+
+function disableNightMode(){
+  document.querySelector('body').classList.remove('nighttimeBg');
+  document.querySelector('.expandedSection').classList.remove('nighttimeBgColor');
+  document.querySelector('.expandWrapper').classList.remove('nighttimeText');
+  document.querySelector('.expandRight').classList.remove('nighttimeDivider');
+}
 
 
