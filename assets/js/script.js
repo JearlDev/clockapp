@@ -119,15 +119,15 @@ function displayTime(){
   if(hrs < 12 && hrs >= 5){
     //good morning
     document.querySelector('.tOD').innerHTML = 'Good morning';
-    document.querySelector('.tODIcon').src = 'assets\images\desktop\icon-sun.svg';
+    document.querySelector('.tODIcon').src = 'assets/images/desktop/icon-sun.svg';
   }else if(hrs >= 12 && hrs < 18){
     //good afternoon
     document.querySelector('.tOD').innerHTML = 'Good afternoon';
-    document.querySelector('.tODIcon').src = 'assets\images\desktop\icon-sun.svg';
+    document.querySelector('.tODIcon').src = 'assets/images/desktop/icon-sun.svg';
   }else {
     //good evening
     document.querySelector('.tOD').innerHTML = 'Good evening';
-    document.querySelector('.tODIcon').src = 'assets\images\desktop\icon-moon.svg';
+    document.querySelector('.tODIcon').src = 'assets/images/desktop/icon-moon.svg';
   }
 
   //set time
